@@ -7,9 +7,10 @@ import Statlist from "@/components/Statlist";
 const Page = () => {
     return (
         <div>
-            <Statlist/>
+            
            <Hero/>
            <WorkList/>
+        <Statlist/>
         </div>
     );
 };
