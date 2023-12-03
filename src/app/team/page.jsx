@@ -1,9 +1,10 @@
 import React from 'react';
+import Team from "@/components/Team";
 
 const Page = () => {
     return (
         <div>
-            team page
+           <Team/>
         </div>
     );
 };

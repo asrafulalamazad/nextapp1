@@ -1,33 +1,86 @@
+async function getData(){
+    const res=await fetch(process.env.BASE_URL+"api/AllService");
+    if(!res.ok){
+        throw new Error("AllService List Calling Fail");
+    }
+    return res.json();
+}
 
-const Services = () => {
+const Services = async () => {
+    const data = await getData();
     return (
-        <div className="container mx-auto">
-            {/*/!*<h1 className=" bg-green-300 md:bg-blue-400 font-sans text-center font-bold text-green-700">Services</h1>*!/*/}
-            {/*/!*<p className="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>*!/*/}
-            {/*<div className="flex justify-between">*/}
-            {/*    <div className=" p-4 m-4 bg-orange-400 w-30 h-30">Bangladesh</div>*/}
-            {/*    <div className="p-4 m-4 bg-gray-400">Bangladesh</div>*/}
-            {/*    <div className="p-4 m-4 bg-blue-400">Bangladesh</div>*/}
-            {/*    <div className="p-4 m-4 bg-green-300">Bangladesh</div>*/}
-            {/*</div>*/}
+        <div>
+            <section>
+                <div className="skew skew-top mr-for-radius">
+                    <svg className="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10"
+                         preserveAspectRatio="none">
+                        <polygon fill="currentColor" points="0 0 10 10 0 10"/>
+                    </svg>
+                </div>
+                <div className="skew skew-top ml-for-radius">
+                    <svg className="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10"
+                         preserveAspectRatio="none">
+                        <polygon fill="currentColor" points="0 10 10 0 10 10"/>
+                    </svg>
+                </div>
 
+                {
+                    data.map((item,i)=>{
+                        return(
+                            <div key={i.toString()} className="py-20 bg-gray-50 radius-for-skewed">
+                                <div className="container mx-auto px-4">
+                                    <div className="flex flex-wrap items-center -mx-4">
+                                        <div className="mb-12 lg:mb-0 w-full lg:w-1/2 flex px-4">
+                                            <div className="max-w-md">
+                                                <span className="text-green-600 font-bold">{item['tag']}</span>
+                                                <h2 className="mb-6 text-4xl lg:text-5xl font-bold font-heading">
+                                                    {item['title']}
+                                                </h2>
+                                                <div className="mb-6 max-w-sm">
+                                                    <p className="text-gray-500 leading-loose">
+                                                        {item['des']}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="w-full lg:w-1/2">
+                                            <div className="mb-4 flex flex-wrap items-end">
+                                                <div className="mb-4 lg:mb-0 w-full lg:w-2/3 px-3">
+                                                    <img className="w-full h-32 lg:h-48 object-cover rounded" src= {item['image1']}/>
+                                                </div>
+                                                <div className="w-full lg:w-1/3 px-3">
+                                                    <img className="w-full h-32 object-cover rounded" src= {item['image2']} alt=""/>
+                                                </div>
+                                            </div>
+                                            <div className="flex flex-wrap items-start">
+                                                <div className="mb-4 lg:mb-0 w-full lg:w-1/3 px-3">
+                                                    <img className="w-full h-32 object-cover rounded" src= {item['image3']} alt=""/>
+                                                </div>
+                                                <div className="w-full lg:w-2/3 px-3">
+                                                    <img className="w-full h-32 lg:h-48 object-cover rounded" src= {item['image4']} alt=""/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
 
-            {/*<div className=" flex grid grid-rows-1 sm:grid-cols-2 text-center md:grid-cols-4 lg:grid-cols-5">*/}
-            {/*    <div className="border-5 p-4 m-4 bg-orange-400 w-30 h-30">Bangladesh</div>*/}
-            {/*    <div className="p-4 m-4 bg-gray-400">Bangladesh</div>*/}
-            {/*    <div className="p-4 m-4 bg-blue-400">Bangladesh</div>*/}
-            {/*    <div className="p-4 m-4 bg-green-300">Bangladesh</div>*/}
-            {/*</div>*/}
-
-            <div className=" relative flex h-64 w-64 mx-auto bg-green-200  p-2 text-center ">
-                <div className=" absolute left-0 top-0 bg-red-400 h-20 w-20 rounded-md m-1 p-2">Bangladesh</div>
-                <div className=" absolute right-0 top-0 bg-red-500 h-20 w-20 rounded-t-3xl m-1 py-2">Bangladesh</div>
-                <div className=" absolute bottom-0 left-0 bg-red-600 h-20 w-20 rounded-b-3xl m-1 py-2 ">Bangladesh</div>
-                <div className=" absolute bottom-0 right-0 bg-orange-400 h-20 w-20 rounded-full m-1 py-2">Bangladesh</div>
-                <div className=" absolute bottom-1/4 right-10 truncate  bg-orange-400 h-20 w-20 rounded-full m-1 py-2">Bangladesh</div>
-            </div>
-
-
+                <div className="skew skew-bottom mr-for-radius">
+                    <svg className="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10"
+                         preserveAspectRatio="none">
+                        <polygon fill="currentColor" points="0 0 10 0 0 10"/>
+                    </svg>
+                </div>
+                <div className="skew skew-bottom ml-for-radius">
+                    <svg className="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10"
+                         preserveAspectRatio="none">
+                        <polygon fill="currentColor" points="0 0 10 0 10 10"/>
+                    </svg>
+                </div>
+            </section>
         </div>
     );
 };
