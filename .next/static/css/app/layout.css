@@ -1003,6 +1003,9 @@ html {
 .w-\[246px\] {
   width: 246px;
 }
+.w-\[250px\] {
+  width: 250px;
+}
 .w-\[345px\] {
   width: 345px;
 }
@@ -1014,15 +1017,6 @@ html {
 }
 .w-full {
   width: 100%;
-}
-.w-\[100px\] {
-  width: 100px;
-}
-.w-\[200px\] {
-  width: 200px;
-}
-.w-\[250px\] {
-  width: 250px;
 }
 .grow {
   flex-grow: 1;
