@@ -1,4 +1,4 @@
-// File: C:\PROJECT\JS Programming\Deploy\asignment1\nextapp1\src\app\service\page.jsx
+// File: E:\ASRAFUL\asraful_office_doc_google\next\assignment_app1\src\app\service\page.jsx
 import * as entry from '../../../../src/app/service/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
